@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MiSitio.com</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+
+</head>
+<body>
+<div class="container valign-wrapper">
+  <div class="centrar-caja">
+      <%= link_to_unless_current("inicio",{:action=>'home',:controller=>'principal'},:class=>'waves-effect waves-light btn etq') %>
+      <%= link_to_unless_current("acerca de ",{:action=>'acerca_de',:controller=>'principal'},:class=>'waves-effect waves-light btn etq') %>
+      <%= link_to_unless_current("localizacion",{:action=>'localizar',:controller=>'principal'},:class=>'waves-effect waves-light btn etq') %>
+      <%= link_to_unless_current("acerca de..",{:action=>'contacto',:controller=>'principal'},:class=>'waves-effect waves-light btn etq') %>
+      <%= enlace "sistema","localizacion","home","waves-effect waves-light btn etq"%>
+  </div>
+
+</div>
+<div class="container row valign-wrapper">
+  <div class="column l12 m10 s6">
+    <%= yield %>
+  </div>
+
+</div>
+<div class="row">
+  <div class="col s12">
+    <%= render :partial=>"layouts/pie_pagina",:locals=>{:pagina=>@titulo} %>
+  </div>
+</div>
+
+</body>
+</html>
